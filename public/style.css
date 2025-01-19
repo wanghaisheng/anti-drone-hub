@@ -158,6 +158,16 @@ header {
     cursor: pointer;
     display: inline-block;
 }
+.vendor-prev-btn, .vendor-next-btn {
+     background: #fff;
+    border: 1px solid #007bff;
+    color: #007bff;
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
 
 /* Social Feeds Section */
 .social-feed {
@@ -204,6 +214,53 @@ header {
     width: 60px;
      height: auto;
     margin-bottom: 15px;
+}
+.technology-overview {
+    padding: 40px 0;
+}
+
+.technology-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.technology-card {
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+     margin: 15px;
+}
+
+.technology-card img {
+    width: 100px;
+    height: auto;
+     margin-bottom: 15px;
+}
+/* Vendor Showcase Section */
+.vendor-showcase {
+    background-color: #f8f8f8;
+    padding: 40px 0;
+}
+
+.vendor-grid {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px 0;
+     gap: 20px;
+    margin-bottom: 20px;
+
+}
+.vendor-grid::-webkit-scrollbar {
+   display: none; /* Hide the scrollbar */
+}
+.vendor-grid .vendor-card {
+    min-width: 250px;
+       padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+   flex: 0 0 auto; /* Allow cards to size naturally within container */
 }
 
 /* Testimonial Section */
@@ -324,6 +381,24 @@ footer {
             flex: 0 0 auto;
            width: 90%;
          max-width: 400px;
+    }
+        .vendor-grid {
+        overflow-x: scroll;
+    }
+
+    .vendor-grid .vendor-card {
+          min-width: 90%;
+     }
+          .technology-cards {
+         flex-direction: column;
+        align-items: center; /* Center benefit cards on small screens */
+
+    }
+    .technology-card {
+       width: 90%;
+      max-width: 400px;
+     margin-left: auto;
+     margin-right: auto;
     }
 
 }
