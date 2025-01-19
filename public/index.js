@@ -14,6 +14,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const testimonialNextBtn = document.querySelector('.testimonial-next-btn');
     let testimonialIndex = 0;
 
+    const vendorGrid = document.querySelector('.vendor-grid');
+      const vendorPrevBtn = document.querySelector('.vendor-prev-btn');
+    const vendorNextBtn = document.querySelector('.vendor-next-btn');
+    let vendorIndex = 0;
+
       const leadForm = document.getElementById('lead-form');
 
     // Dummy product data
@@ -35,9 +40,47 @@ document.addEventListener('DOMContentLoaded', function() {
          {platform: 'X', content: 'A look at using nets as a means to stop drones. #DroneNets', url:'https://x.com/David_Hambling/status/1876588290301968481'},
           {platform: 'X', content: 'Humorous debunking of the idea of a universal anti-drone system. #AntiDroneTech', url:'https://x.com/JimmySecUK/status/1868057156538483073'},
     ];
+     // Dummy vendor data
+   const vendors = [
+        {name: 'Robin Radar', description: 'Specializes in radar-based drone detection.'},
+    {name: 'Dedrone', description: 'Offers comprehensive counter-drone defense solutions.'},
+   {name: 'Maverick Drone', description: 'Provides drone defense products.'},
+    {name: 'D-Fend Solutions', description: 'Offers advanced counter-drone technology.'},
+    {name: 'NQDefense', description: 'Offers anti-drone systems for security and defense.'},
+   {name: 'MyDefence', description: 'Provides C-UAS solutions for drone detection and jamming.'},
+  {name: 'Adani Defence', description: 'Offers counter-drone systems.'},
+   {name: 'Skylock', description: 'Provides counter-drone detection systems.'},
+    {name: 'Northrop Grumman', description: 'Offers counter unmanned aerial systems.'},
+   {name: 'Kaspersky', description: 'Provides anti-drone solutions.'},
+  {name: 'Drone Assemble', description: 'Offers handheld anti-drone systems.'},
+    {name: 'Big Bang Boom', description: 'Offers anti-drone defense systems.'},
+  {name: 'Rheinmetall', description: 'Provides drone defense solutions.'},
+   {name: 'SCI', description: 'Offers an autonomous counter-drone system called AeroGuard.'},
+    {name: 'Netline Tech', description: 'Offers portable counter-drone solutions.'},
+  {name: 'L3Harris', description: 'Offers drone guardian counter-UAS systems.'},
+ {name: 'Terma', description: 'Offers counter-drone protection systems.'},
+   {name: 'Flex Force Enterprises', description: 'Developed the Dronebuster anti-drone system.'},
+    {name: 'Anduril', description: 'Offers Counter-UAS solutions.'},
+{name: 'Infiniti Optics', description: 'Offers CUAS/Anti-Drone air defense solutions.'},
+   {name: 'Fixar', description: 'Offers reliable and intelligent anti-drone systems.'},
+    {name: 'Echodyne', description: 'Provides counter-drone radar systems.'},
+    {name: 'Rohde & Schwarz', description: 'Offers counter-drone systems.'},
+{name: 'Battelle', description: 'Developed DroneDefender technology.'},
+   {name: 'Hinaray', description: 'Offers anti-drone systems and guns.'},
+    {name: 'RMUS', description: 'Offers a counter drone system called BluVec.'},
+   {name: 'Ondas', description: 'Provides counter-drone solutions.'},
+{name: 'Elbit Systems', description: 'Offers anti-drone systems.'},
+{name: 'Leonardo DRS', description: 'Provides counter-UAS systems.'},
+{name: 'Sensofusion', description: 'Offers anti-drone systems.'},
+    {name: 'RTX (Raytheon)', description: 'Offers the Coyote counter-drone system.'},
+ {name: 'Tron Future', description: 'Offers anti drone solutions'},
+  {name: 'WhiteFox Defense', description: 'Offers drone airspace security.'},
+ {name: 'Axon', description: 'Provides counter-drone solutions.'},
+    {name: 'Safran', description: 'Offers the Skyjacker counter-drone system.'}
+    ];
     const testimonials = [
         {name: 'Jane Doe', organization:'Acme Corp', testimonial: 'Our security has improved tremendously since we integrated this technology into our operations.'},
-         {name: 'John Smith', organization:'Global Security Inc', testimonial: 'We've used many types of security, and this has worked better than anything we\'ve ever tried.'},
+         {name: 'John Smith', organization:'Global Security Inc', testimonial: 'We\'ve used many types of security, and this has worked better than anything we\'ve ever tried.'},
           {name: 'Jane Smith', organization:'SecureCo', testimonial: 'Our team was amazed by the improvements we\'ve made, and we would recommend it to anyone.'}
     ]
    function populateProducts () {
@@ -65,6 +108,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
            `;
           socialFeed.appendChild(socialCard);
+       });
+   }
+   function populateVendors () {
+       vendors.forEach(vendor => {
+           const vendorCard = document.createElement('div');
+           vendorCard.classList.add('vendor-card');
+           vendorCard.innerHTML = `
+               <h3>${vendor.name}</h3>
+               <p>${vendor.description}</p>
+           `;
+           vendorGrid.appendChild(vendorCard);
        });
    }
  function populateTestimonials () {
@@ -123,6 +177,18 @@ document.addEventListener('DOMContentLoaded', function() {
              updateSliderPosition(testimonialIndex, testimonialCarousel);
         }
     });
+   vendorPrevBtn.addEventListener('click', () => {
+      if (vendorIndex > 0) {
+          vendorIndex--;
+          updateSliderPosition(vendorIndex, vendorGrid)
+      }
+    });
+    vendorNextBtn.addEventListener('click', () => {
+        if (vendorIndex < vendors.length - 1) {
+            vendorIndex++;
+             updateSliderPosition(vendorIndex, vendorGrid)
+        }
+    });
 
      leadForm.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent default form submission
@@ -143,5 +209,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   populateProducts();
   populateSocialFeed();
+   populateVendors();
   populateTestimonials();
 });
