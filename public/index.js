@@ -4,22 +4,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextBtn = document.querySelector('.next-btn');
     let productIndex = 0;
 
-  const socialFeed = document.querySelector('.social-feeds');
-     const socialPrevBtn = document.querySelector('.social-prev-btn');
+    const socialFeed = document.querySelector('.social-feeds');
+    const socialPrevBtn = document.querySelector('.social-prev-btn');
     const socialNextBtn = document.querySelector('.social-next-btn');
     let socialIndex = 0;
 
-   const testimonialCarousel = document.querySelector('.testimonial-carousel');
+    const testimonialCarousel = document.querySelector('.testimonial-carousel');
     const testimonialPrevBtn = document.querySelector('.testimonial-prev-btn');
     const testimonialNextBtn = document.querySelector('.testimonial-next-btn');
     let testimonialIndex = 0;
 
     const vendorGrid = document.querySelector('.vendor-grid');
-      const vendorPrevBtn = document.querySelector('.vendor-prev-btn');
+    const vendorPrevBtn = document.querySelector('.vendor-prev-btn');
     const vendorNextBtn = document.querySelector('.vendor-next-btn');
     let vendorIndex = 0;
 
-      const leadForm = document.getElementById('lead-form');
+    const leadForm = document.getElementById('lead-form');
 
     // Dummy product data
     const products = [
